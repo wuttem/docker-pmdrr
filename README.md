@@ -18,6 +18,8 @@ pipelines:
     - step:
         script:
           - service mysql start
+          - service redis-server start
+          - service dynamo-server start
           - mysql -h localhost -u root -proot -e "CREATE DATABASE mydb;"
           - python setup.py install
           - py.test
