@@ -8,8 +8,10 @@ RUN apt-get update \
  && apt-get -y --no-install-recommends install apt-utils \
  && echo "mysql-server mysql-server/root_password password root" | debconf-set-selections \
  && echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
-RUN apt-get install -qq -y --no-install-recommends ca-certificates mysql-server git wget curl mysql-client python-dev python python-pip nano redis-server default-jdk
-#ENV JAVA_HOME /usr/lib/jvm/java-7-openjdk-amd64
+RUN apt-get install -qq -y --no-install-recommends ca-certificates mysql-server libmysqlclient-dev git build-essential wget curl mysql-client python-dev python python-pip nano redis-server default-jdk
+RUN pip install --upgrade pip \
+ && pip install setuptools \
+ && pip install pytest mock MySQL-python redis
 WORKDIR /opt/dynamo
 COPY dynamo-server /etc/init.d/dynamo-server
 RUN mkdir -p /opt/dynamo \
