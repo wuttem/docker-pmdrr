@@ -11,6 +11,9 @@ Based on Ubuntu 16.04
 
 ## Bitbucket Pipeline Configuration `bitbucket-pipelines.yml`
 
+Example: Start all services, install python dependenciesw and start testsuite
+
+
 ```YAML
 image: mths/docker-python-mysql-dynamo-redis
 pipelines:
