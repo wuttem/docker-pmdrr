@@ -20,3 +20,4 @@ RUN mkdir -p /opt/dynamo \
  && echo "/usr/bin/java -Djava.library.path=/opt/dynamo/DynamoDBLocal_lib -jar /opt/dynamo/DynamoDBLocal.jar -sharedDb --inMemory" > startDynamo.sh \
  && chmod +x startDynamo.sh \
  && chmod 700 /etc/init.d/dynamo-server
+ 
