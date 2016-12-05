@@ -4,11 +4,12 @@ FROM ubuntu:16.04
 #ENV LANGUAGE en_US:en
 ENV DEBIAN_FRONTEND noninteractive
 
+RUN echo 'deb http://www.rabbitmq.com/debian/ testing main' | tee /etc/apt/sources.list.d/rabbitmq.list
 RUN apt-get update \
  && apt-get -y --no-install-recommends install apt-utils \
  && echo "mysql-server mysql-server/root_password password root" | debconf-set-selections \
  && echo "mysql-server mysql-server/root_password_again password root" | debconf-set-selections
-RUN apt-get install -qq -y --no-install-recommends ca-certificates mysql-server libmysqlclient-dev git build-essential wget curl mysql-client python-dev python python-pip nano redis-server default-jdk
+RUN apt-get install -qq -y --allow-unauthenticated --no-install-recommends ca-certificates mysql-server libmysqlclient-dev git build-essential wget curl mysql-client python-dev python python-pip nano redis-server default-jdk rabbitmq-server
 RUN pip install --upgrade pip \
  && pip install setuptools \
  && pip install pytest mock MySQL-python redis
