@@ -1,4 +1,4 @@
-# docker-python-mysql-dynamo-redis
+# docker-pmdrr
 Docker Container with Preinstalled Python/SQL/Dynamo/Redis/Rabbit
 Based on Ubuntu 16.04
 
@@ -16,7 +16,7 @@ Example: Start all services, install python dependenciesw and start testsuite
 
 
 ```YAML
-image: mths/docker-python-mysql-dynamo-redis
+image: mths/docker-pmdrr
 pipelines:
   default:
     - step:
