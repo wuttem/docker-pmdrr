@@ -16,7 +16,7 @@ RUN pip install --upgrade pip \
 WORKDIR /opt/dynamo
 COPY dynamo-server /etc/init.d/dynamo-server
 RUN mkdir -p /opt/dynamo \
- && /usr/bin/curl -L http://dynamodb-local.s3-website-us-west-2.amazonaws.com/dynamodb_local_latest | /bin/tar xz \
+ && /usr/bin/curl -L https://s3-us-west-2.amazonaws.com/dynamodb-local/dynamodb_local_latest.tar.gz | /bin/tar xz \
  && echo "/usr/bin/java -Djava.library.path=/opt/dynamo/DynamoDBLocal_lib -jar /opt/dynamo/DynamoDBLocal.jar -sharedDb --inMemory" > startDynamo.sh \
  && chmod +x startDynamo.sh \
  && chmod 700 /etc/init.d/dynamo-server
